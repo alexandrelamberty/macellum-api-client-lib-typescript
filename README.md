@@ -65,3 +65,19 @@ pnpm doc:publish
 ```
 
 This command publishes the documentation to the gh-pages branch of the repository, making it accessible via the project's GitHub Pages URL.
+
+## GitHub Actions
+
+This project utilizes GitHub Actions for automating the release and publishing process. Below is the workflow defined in the `.github/workflows/release-publish.yml`
+
+This workflow consists of two jobs:
+
+1. Release: This job creates a GitHub release whenever a new tag is pushed to the repository.
+
+2. Publish: This job publishes the package to npm and GitHub Packages after the release job is completed successfully.
+
+Before using this workflow, ensure you have set up the necessary secrets in your repository settings:
+
+- **GITHUB_TOKEN:** Required for creating GitHub releases.
+
+- **NPM_TOKEN:** Required for publishing to npm.
